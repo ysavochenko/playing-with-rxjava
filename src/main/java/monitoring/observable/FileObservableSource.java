@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class FileObservableSource implements LogObservableSource {
+public class FileObservableSource implements LogObservableSource<String> {
 
     private final String filename;
 

@@ -2,29 +2,29 @@ package monitoring;
 
 import io.reactivex.Observable;
 import monitoring.observable.LogObservableSource;
-import monitoring.observer.StringObserver;
+import monitoring.observer.PersistableObserver;
 
 import java.time.Instant;
 import java.util.TreeMap;
 
 public class LogListener {
 
-    private StringObserver observer;
-    private LogObservableSource observableSource;
+    private PersistableObserver<String> observer;
+    private LogObservableSource<String> observableSource;
 
     public static LogListener getInstance() {
         return new LogListener();
     }
 
     private LogListener() {
-    };
+    }
 
-    public LogListener setObserver(StringObserver someFileObserver) {
+    public LogListener setObserver(PersistableObserver<String> someFileObserver) {
         this.observer = someFileObserver;
         return this;
     }
 
-    public LogListener setObservableSource(LogObservableSource observableSource) {
+    public LogListener setObservableSource(LogObservableSource<String> observableSource) {
         this.observableSource = observableSource;
         return this;
     }

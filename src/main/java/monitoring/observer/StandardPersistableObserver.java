@@ -6,24 +6,23 @@ import io.reactivex.disposables.Disposable;
 import java.time.Instant;
 import java.util.TreeMap;
 
-public class StandardStringObserver implements StringObserver {
+public class StandardPersistableObserver implements PersistableObserver<String> {
 
     private TreeMap<Instant, String> storage = new TreeMap<>();
 
     @Override
     public void onSubscribe(Disposable d) {
-        System.out.println("OK, I've subscribed");
+        System.out.println("OK, I've successfully subscribed to source");
     }
 
     @Override
     public void onNext(String s) {
-//        System.out.println("Got such string from observable: " + s + " inside Thread " + Thread.currentThread().getName());
-        this.storage.put(Instant.now(), s + " inside Thread " + Thread.currentThread().getName());
+        this.storage.put(Instant.now(), s);
     }
 
     @Override
     public void onError(Throwable e) {
-        System.out.println("Sorry GOT SOME ERRORS HERE");
+        System.out.println("Looks like some errors where thrown in observable:");
         System.out.println(e.getMessage());
     }
 

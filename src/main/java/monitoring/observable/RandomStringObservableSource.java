@@ -6,7 +6,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class RandomStringObservableSource implements LogObservableSource {
+public class RandomStringObservableSource implements LogObservableSource<String> {
 
     private volatile boolean isObserving;
     private int limit;

@@ -5,8 +5,8 @@ import io.reactivex.Observer;
 import java.time.Instant;
 import java.util.TreeMap;
 
-public interface StringObserver extends Observer<String> {
+public interface PersistableObserver<T> extends Observer<T> {
 
-    TreeMap<Instant, String> getStoredLogs();
+    TreeMap<Instant, T> getStoredLogs();
 
 }
